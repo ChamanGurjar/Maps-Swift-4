@@ -31,6 +31,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
         let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
         let region = MKCoordinateRegion(center: coordinates, span: span)
         map.setRegion(region, animated: true)
+        
+        addAnnotationToAPlace(coordinates)
+    }
+    
+    private func addAnnotationToAPlace(_ coordinates: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.title = "Red Fort New Delhi India!"
+        annotation.subtitle = "Learning to implement maps in Swift"
+        annotation.coordinate = coordinates
+        map.addAnnotation(annotation)
     }
     
     
